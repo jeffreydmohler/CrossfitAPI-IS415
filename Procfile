@@ -1,1 +1,1 @@
-web: gunicorn intexapi.wsgi --log-file -
+web: gunicorn finalapi.wsgi --log-file -

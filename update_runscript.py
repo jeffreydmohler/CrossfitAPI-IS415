@@ -1,5 +1,5 @@
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'intexapi.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'finalapi.settings'
 import django
 django.setup()
 from api.models import Campaign, Update, Donation
