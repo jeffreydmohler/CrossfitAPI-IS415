@@ -8,9 +8,10 @@ chardet==3.0.4
 click==7.1.1
 cryptography==2.8
 distlib==0.3.0
-Django==3.0.3
+Django==2.1.15
 django-cors-headers==3.2.1
 django-extensions==2.2.9
+django-pyodbc-azure==2.1.0.0
 djangorestframework==3.11.0
 filelock==3.0.12
 Flask==1.1.1
@@ -22,6 +23,7 @@ MarkupSafe==1.1.1
 numpy==1.18.2
 pycparser==2.20
 pycryptodome==3.9.6
+pyodbc==4.0.30
 pyOpenSSL==19.1.0
 pytz==2019.3
 requests==2.23.0
