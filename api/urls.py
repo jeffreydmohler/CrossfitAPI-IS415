@@ -21,7 +21,8 @@ urlpatterns = [
         path('men/<int:pk>/', views.MensDetail.as_view()),
         path('women/', views.WomensList.as_view()),
         path('women/<int:pk>/', views.WomensDetail.as_view()),
-        path('predict/', views.Predict.as_view()),
+        path('predictm/', views.PredictMens.as_view()),
+        path('predictw/', views.PredictWomens.as_view()),
      ]
 
 # # Serializers define the API representation.
