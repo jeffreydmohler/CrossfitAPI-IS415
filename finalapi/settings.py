@@ -88,16 +88,23 @@ WSGI_APPLICATION = 'finalapi.wsgi.application'
 
 DATABASES = {
      'default': {
-         'ENGINE': 'sql_server.pyodbc',
-         'NAME': 'is415',
-         'USER': 'bonnie',
-         'PASSWORD': 'B0nniesboys',
-         'HOST': 'is415finalproject.database.windows.net',
-         'PORT': '1433',
-         'OPTIONS': {
-             'driver': 'ODBC Driver 13 for SQL Server',
-             'MARS_Connection': 'True',
-         }
+        'DRIVER': 'SQL Server',
+        'SERVER': 'is415finalproject.database.windows.net',
+        'DATABASE': 'is415',
+        'UID': 'bonnie',
+        'PWD': 'B0nniesboys',
+
+        #  'ENGINE': 'sql_server.pyodbc',
+        #  'NAME': 'is415',
+        #  'HOST': 'is415finalproject.database.windows.net',
+        #  'PORT': '1433',
+        #  'USER': 'bonnie',
+        #  'PASSWORD': 'B0nniesboys',
+         
+        #  'OPTIONS': {
+        #      'driver': 'ODBC Driver 13 for SQL Server',
+        #      'MARS_Connection': 'True',
+        #  }
      }
 }
 
