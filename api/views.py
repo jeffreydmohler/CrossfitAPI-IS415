@@ -120,7 +120,6 @@ class PredictMens(APIView):
             'Content-Type': 'application/json',
             # 'Content-Type': 'text/plain'
         }
-        payload = payload.encode('utf-8', errors='ignore')
         response = requests.request("POST", url, headers=headers, data = payload)
         
         response = json.loads(response.content)
@@ -153,7 +152,7 @@ class PredictWomens(APIView):
             'Content-Type': 'application/json',
             # 'Content-Type': 'text/plain'
         }
-        payload = payload.encode('utf-8', errors='ignore')
+        #payload = payload.encode('utf-8', errors='ignore')
         response = requests.request("POST", url, headers=headers, data = payload)
         
         response = json.loads(response.content)
