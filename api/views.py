@@ -28,6 +28,7 @@ class MensList(APIView):
     def post(self, request, format=None):
         print("data", request.data)
         serializer = MensSerializer(data=request.data)
+
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
