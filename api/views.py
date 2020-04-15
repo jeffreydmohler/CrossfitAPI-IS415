@@ -27,7 +27,6 @@ class MensList(APIView):
     @csrf_exempt
     def post(self, request, format=None):
         print("data", request.data)
-        print("body", request.body)
         serializer = MensSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
