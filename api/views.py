@@ -26,10 +26,13 @@ class MensList(APIView):
 
     @csrf_exempt
     def post(self, request, format=None):
+        print("data", request.data)
+        print("body", request.body)
         serializer = MensSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        print(serializer)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
