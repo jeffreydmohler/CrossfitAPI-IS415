@@ -87,10 +87,18 @@ WSGI_APPLICATION = 'finalapi.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+     'default': {
+         'ENGINE': 'sql_server.pyodbc',
+         'NAME': 'is415',
+         'USER': 'bonnie',
+         'PASSWORD': 'B0nniesboys',
+         'HOST': 'is415finalproject.database.windows.net',
+         'PORT': '1433',
+         'OPTIONS': {
+             'driver': 'ODBC Driver 13 for SQL Server',
+             'MARS_Connection': 'True',
+         }
+     }
 }
 
 

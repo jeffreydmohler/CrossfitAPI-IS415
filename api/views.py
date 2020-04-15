@@ -4,8 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from api.models import Campaign, Update, Donation
-from api.serializers import CampaignSerializer, UpdateSerializer, DonationSerializer
+from api.models import Mens, Womens
+from api.serializers import MensSerializer, WomensSerializer
 import json
 import requests
 import numpy as np
@@ -13,38 +13,38 @@ import numpy as np
 
 # CLASS NAMES HAVE BEEN UPDATED, BUT THE LOGIC NEEDS UPDATING
 
-class CampaignList(APIView):
+class MensList(APIView):
     '''Get all campaigns or create a campaign'''
     @csrf_exempt
     def get(self, request, format=None):
-        camp = Campaign.objects.all()
+        camp = Mens.objects.all()
         #UPDATE TITLE AFTER CREATING MODELS
         if request.query_params.get('title'):
             camp = camp.filter(title__contains=request.query_params.get('title'))
-        serializer = CampaignSerializer(camp, many=True)
+        serializer = MensSerializer(camp, many=True)
         return Response(serializer.data)
 
     @csrf_exempt
     def post(self, request, format=None):
-        serializer = CampaignSerializer(data=request.data)
+        serializer = MensSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class CampaignDetail(APIView):
+class MensDetail(APIView):
     '''Work with an individual Campaign object'''
     @csrf_exempt
     def get(self, request, pk, format=None):
-        camp = Campaign.objects.get(id=pk)
-        serializer = CampaignSerializer(camp)
+        camp = Mens.objects.get(id=pk)
+        serializer = MensSerializer(camp)
         return Response(serializer.data)
 
     @csrf_exempt
     def put(self, request, pk, format=None):
-        camp = Campaign.objects.get(id=pk)
-        serializer = CampaginSerializer(cat, data=request.data)
+        camp = Mens.objects.get(id=pk)
+        serializer = MensSerializer(cat, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -52,42 +52,42 @@ class CampaignDetail(APIView):
 
     @csrf_exempt
     def delete(self, request, pk, format=None):
-        camp = Campaign.objects.get(id=pk)
+        camp = Mens.objects.get(id=pk)
         camp.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class UpdateList(APIView):
+class WomensList(APIView):
     '''Get all Update or create a Update'''
     @csrf_exempt
     def get(self, request, format=None):
-        upd = Update.objects.all()
+        upd = Womens.objects.all()
         #update category after making the models
         if request.query_params.get('update_id'):
             upd = upd.filter(title__contains=request.query_params.get('update_id'))
-        serializer = UpdateSerializer(upd, many=True)
+        serializer = WomensSerializer(upd, many=True)
         return Response(serializer.data)
 
     @csrf_exempt
     def post(self, request, format=None):
-        serializer = UpdateSerializer(data=request.data)
+        serializer = WomensSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class UpdateDetail(APIView):
+class WomensDetail(APIView):
     '''Work with an individual Update object'''
     @csrf_exempt
     def get(self, request, pk, format=None):
-        upd = Update.objects.get(id=pk)
-        serializer = UpdateSerializer(upd)
+        upd = Womens.objects.get(id=pk)
+        serializer = WomensSerializer(upd)
         return Response(serializer.data)
 
     @csrf_exempt
     def put(self, request, pk, format=None):
-        upd = Update.objects.get(id=pk)
-        serializer = UpdateSerializer(upd, data=request.data)
+        upd = Womens.objects.get(id=pk)
+        serializer = WomensSerializer(upd, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -95,52 +95,10 @@ class UpdateDetail(APIView):
 
     @csrf_exempt
     def delete(self, request, pk, format=None):
-        upd = Update.objects.get(id=pk)
+        upd = Womens.objects.get(id=pk)
         upd.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class DonationList(APIView):
-    '''Get all donations or create a Donation'''
-    @csrf_exempt
-    def get(self, request, format=None):
-        don = Donation.objects.all()
-        #update after doing the models
-        if request.query_params.get('id'):
-            don = don.filter(title__contains=request.query_params.get('id'))
-        serializer = DonationSerializer(don, many=True)
-        return Response(serializer.data)
-
-    @csrf_exempt
-    def post(self, request, format=None):
-        serializer = DonationSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class DonationDetail(APIView):
-    '''Work with an individual Donation object'''
-    @csrf_exempt
-    def get(self, request, pk, format=None):
-        don = Donation.objects.get(id=pk)
-        serializer = DonationSerializer(don)
-        return Response(serializer.data)
-
-    @csrf_exempt
-    def put(self, request, pk, format=None):
-        don = Donation.objects.get(id=pk)
-        serializer = DonationSerializer(cat, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    @csrf_exempt
-    def delete(self, request, pk, format=None):
-        don = Donation.objects.get(id=pk)
-        don.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class Predict(APIView):
     '''predicts success score off of given inputs'''
