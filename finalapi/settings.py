@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')40g8anyi64)1flyk*tg5%o@zuf+@()&zkw2m&4v=m-5z8z3$u'
+SECRET_KEY = 'INSERT SECRETY KEY HERE'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -91,15 +91,15 @@ DATABASES = {
         'DRIVER': 'SQL Server',
         'SERVER': 'is415finalproject.database.windows.net',
         'DATABASE': 'is415',
-        'UID': 'bonnie',
-        'PWD': 'B0nniesboys',
+        'UID': 'INSERT USERNAME',
+        'PWD': 'INSERT PASSWORD',
 
         #  'ENGINE': 'sql_server.pyodbc',
         #  'NAME': 'is415',
         #  'HOST': 'is415finalproject.database.windows.net',
         #  'PORT': '1433',
-        #  'USER': 'bonnie',
-        #  'PASSWORD': 'B0nniesboys',
+        #  'USER': 'INSERT USERNAME',
+        #  'PASSWORD': 'INSERT PASSWORD',
          
         #  'OPTIONS': {
         #      'driver': 'ODBC Driver 13 for SQL Server',
